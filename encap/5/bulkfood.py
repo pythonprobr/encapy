@@ -1,8 +1,10 @@
-
 class Quantity(object):
 
+    def __init__(self):
+        self.set_name(self.__class__.__name__, id(self))
+
     def set_name(self, prefix, key):
-        self.attr_name = '__%s_%s' % (prefix, key)
+        self.attr_name = '%s_%s' % (prefix, key)
 
     def __get__(self, instance, owner):
         return getattr(instance, self.attr_name)
@@ -13,14 +15,18 @@ class Quantity(object):
         else:
             raise ValueError('value must be > 0')
 
+
 class BusinessEntityMeta(type):
-    def __init__(self, class_name, bases, attr_dict):
-        for key, attr in attr_dict.items():
+    def __init__(mcs, name, bases, dict_):
+        super(BusinessEntityMeta, mcs).__init__(name, bases, dict_)
+        for key, attr in dict_.items():
             if isinstance(attr, Quantity):
-                attr.set_name(class_name, key)
+                attr.set_name('__'+name, key)
+
 
 class BusinessEntity(object):
     __metaclass__ = BusinessEntityMeta
+
 
 class BulkItem(BusinessEntity):
     weight = Quantity()
