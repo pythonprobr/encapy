@@ -8,6 +8,7 @@ in five steps.
 The last step includes a metaclass that provides better integration from of
 the descriptors with their target instances.
 
+See slides ``encap-draft.pdf`` for more context and UML diagrams.
 
 Benchmarks
 ==========
