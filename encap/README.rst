@@ -25,7 +25,7 @@ Code used for timing::
     print(timeit(stmt, setup))
 
 
-The results were:: 
+Benchmark results:
 
 =========== ============ ============= ==================
 interpreter __new__      metaclass     speedup factor
