@@ -25,13 +25,5 @@ class BusinessEntityMeta(type):
                 attr.set_name('__' + name, key)
 
 
-class LineItem(object):
+class BusinessEntity(object):
     __metaclass__ = BusinessEntityMeta
-
-    weight = Quantity()
-    price = Quantity()
-
-    def __init__(self, description, weight, price):
-        self.description = description
-        self.weight = weight
-        self.price = price

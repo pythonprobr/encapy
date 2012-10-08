@@ -15,7 +15,7 @@ class Quantity(object):
             raise ValueError('value must be > 0')
 
 
-class BulkItem(object):
+class LineItem(object):
     weight = Quantity()
     price = Quantity()
 

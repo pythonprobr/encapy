@@ -3,7 +3,7 @@ Encapsulation in Python
 =======================
 
 Evolving a simple class from public attributes to properties and descriptors
-in five steps. 
+in five steps.
 
 The last step includes a metaclass that provides better integration from of
 the descriptors with their target instances.
@@ -14,14 +14,14 @@ Benchmarks
 ==========
 
 The metaclass version in step 5 is much faster than the ``__new__``
-implementation in step 4, at least when a large quantity of BultItem instances 
+implementation in step 4, at least when a large quantity of BultItem instances
 is built.
 
 Code used for timing::
 
     from timeit import timeit
-    stmt = '''BulkItem('Golden raisins', 10, 36.95)'''
-    setup = '''from bulkfood import BulkItem'''
+    stmt = '''LineItem('Golden raisins', 10, 36.95)'''
+    setup = '''from bulkfood import LineItem'''
     print(timeit(stmt, setup))
 
 

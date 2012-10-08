@@ -16,17 +16,15 @@ class Quantity(object):
             raise ValueError('value must be > 0')
 
 
-class BusinessEntity(object):
+class LineItem(object):
+    weight = Quantity()
+    price = Quantity()
+
     def __new__(cls, *args, **kwargs):
         for key, attr in cls.__dict__.items():
             if isinstance(attr, Quantity):
                 attr.set_name('__' + cls.__name__, key)
-        return super(BusinessEntity, cls).__new__(cls, *args, **kwargs)
-
-
-class BulkItem(BusinessEntity):
-    weight = Quantity()
-    price = Quantity()
+        return super(LineItem, cls).__new__(cls, *args, **kwargs)
 
     def __init__(self, description, weight, price):
         self.description = description

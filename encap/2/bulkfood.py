@@ -1,4 +1,4 @@
-class BulkItem(object):
+class LineItem(object):
 
     def __init__(self, description, weight, price):
         self.description = description

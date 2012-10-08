@@ -28,16 +28,19 @@ As before, the descriptive attribute names are used::
 	>>> [name for name in dir(raisins) if name[-1] != '_'] #doctest: +ELLIPSIS
 	['__LineItem_price', '__LineItem_weight', ..., 'price', 'weight']
 
-However, in this version the linking of the descriptor instances to their
-respective attribute names is not done in ``LineItem.__new__`` but in a
-*metaclass*. ``LineItem`` is now declared to be an instance of
-``BusinessEntityMeta``::
+Here we have the same funtionality as the previous step, refactored.
+``BulkEntityMeta`` and ``Quantity`` are in a new ``entity`` module. And a
+class ``BusinessEntity`` is created to serve as the superclass of
+``LineItem``, so that the application developer does not need to know about
+metaclasses.
 
+    >>> type(raisins)
+    <class 'bulkfood.LineItem'>
+    >>> LineItem.__bases__
+    (<class 'entity.BusinessEntity'>,)
     >>> type(LineItem)
-    <class 'bulkfood.BusinessEntityMeta'>
+    <class 'entity.BusinessEntityMeta'>
 
-The ``BusinessEntityMeta`` metaclass is responsible for building the
-``LineItem`` class, and ``BusinessEntityMeta.__init__`` is the right place
-to implement the logic that was previously in ``LineItem.__new__``. That way,
-the code linking descriptors and attributes runs only once, when the
-``LineItem`` class is defined at module import time.
+The ``bulkfood`` module *looks* almost as simple as it was in the first step,
+but its numeric attributes are now encapsulated by a reusable descriptor class
+that validades their values.
