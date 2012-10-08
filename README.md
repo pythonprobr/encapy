@@ -1,4 +1,4 @@
 talks
 =====
 
-Proposed PyCon talks
+Python talks under development
