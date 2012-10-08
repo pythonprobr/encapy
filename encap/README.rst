@@ -2,13 +2,14 @@
 Encapsulation in Python
 =======================
 
-Evolving a simple class from public attributes to properties and descriptors
-in five steps.
+This demonstrates the evolution of a simple class with public attributes
+to encapsulation with properties and descriptors in six steps.
 
-The last step includes a metaclass that provides better integration from of
-the descriptors with their target instances.
+The fith step adds a metaclass to provide better integration of the
+descriptors with their target instances.
 
-See slides ``encap-draft.pdf`` for more context and UML diagrams.
+See slides ``encap-draft.pdf`` for more context and UML diagrams (as of Oct.
+7, 2012, the slides do not reflect the current implementation after step 4)
 
 Benchmarks
 ==========
