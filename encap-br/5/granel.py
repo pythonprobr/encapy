@@ -15,6 +15,7 @@ class Quantidade(object):
         else:
             raise ValueError('valor deve ser > 0')
 
+
 class ModeloMeta(type):
 
     def __init__(mcs, nome, bases, dic):

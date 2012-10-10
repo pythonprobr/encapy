@@ -1,5 +1,6 @@
 from modelo import Modelo, Quantidade
 
+
 class ItemPedido(Modelo):
 
     peso = Quantidade()

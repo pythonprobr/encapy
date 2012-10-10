@@ -14,6 +14,7 @@ class Quantidade(object):
         else:
             raise ValueError('valor deve ser > 0')
 
+
 class ItemPedido(object):
     peso = Quantidade()
     preco = Quantidade()
