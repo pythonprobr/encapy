@@ -1,6 +1,6 @@
-===================================
-Alimentos a granel: itens de pedido
-===================================
+=======
+Passo 3
+=======
 
 Um pedido de alimentos a granel é uma coleção de ``ItenPedido``.
 Cada item possui campos para descrição, peso e preço::
@@ -27,13 +27,20 @@ A mesma regra se aplica ao preço::
 Armazenagem dos valores
 =======================
 
-A classe descritora ``Quantidade`` armazena os dados de cada atributo controlado em um atributo em cada instância de ``ItemPedido``::
+A classe descritora ``Quantidade`` armazena o valor de cada atributo
+controlado em atributos nas instâncias de ``ItemPedido``.
 
 Os valores de ``preco`` e ``peso`` são armazenados em atributos das
 instâncias de ``ItemPedido`` com nomes arbitrários definidos no método
-``Quantidade.__init__``. Isso funciona porque os nomes são únicos, como
-``Quantidade_4300501456``.porém não são mnemônicos, o que dificulda a
-depuração::
+``Quantidade.__init__``. Isso funciona porque os nomes são únicos,
+como ``Quantidade_4300501456``. Porém não são nomes mnemônicos, o
+que dificulta a depuração::
 
 	>>> dir(ervilha) # doctest: +ELLIPSIS
 	['Quantidade_...', 'Quantidade_...', ...]
+
+Implementação
+=============
+
+.. literalinclude:: granel.py
+   :linenos:

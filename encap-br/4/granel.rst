@@ -1,6 +1,6 @@
-===================================
-Alimentos a granel: itens de pedido
-===================================
+=======
+Passo 4
+=======
 
 Um pedido de alimentos a granel é uma coleção de ``ItenPedido``.
 Cada item possui campos para descrição, peso e preço::
@@ -31,3 +31,9 @@ Nesta versão as instâncias dos descritores recebem um nome mais descritivo dur
 
 	>>> dir(ervilha) # doctest: +ELLIPSIS
 	['__ItemPedido_peso', '__ItemPedido_preco', ...]
+
+Implementação
+=============
+
+.. literalinclude:: granel.py
+   :linenos:

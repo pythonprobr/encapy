@@ -1,6 +1,6 @@
-===================================
-Alimentos a granel: itens de pedido
-===================================
+=======
+Passo 2
+=======
 
 Um pedido de alimentos a granel é uma coleção de ``ItenPedido``.
 Cada item possui campos para descrição, peso e preço::
@@ -16,3 +16,9 @@ O peso de um ``ItemPedido`` deve ser maior que zero::
 	Traceback (most recent call last):
 		...
 	ValueError: valor deve ser > 0
+
+Implementação
+=============
+
+.. literalinclude:: granel.py
+   :linenos:
