@@ -10,3 +10,6 @@ class ItemPedido(Modelo):
         self.descricao = descricao
         self.peso = peso
         self.preco = preco
+
+    def subtotal(self):
+        return self.peso * self.preco

@@ -5,5 +5,5 @@ class ItemPedido(object):
         self.peso = peso
         self.preco = preco
 
-    def total(self):
+    def subtotal(self):
         return self.peso * self.preco
