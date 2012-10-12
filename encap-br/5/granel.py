@@ -18,8 +18,8 @@ class Quantidade(object):
 
 class ModeloMeta(type):
 
-    def __init__(mcs, nome, bases, dic):
-        super(ModeloMeta, mcs).__init__(nome, bases, dic)
+    def __init__(cls, nome, bases, dic):
+        super(ModeloMeta, cls).__init__(nome, bases, dic)
         for chave, atr in dic.items():
             if hasattr(atr, 'set_nome'):
                 atr.set_nome('__' + nome, chave)
