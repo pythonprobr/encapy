@@ -6,15 +6,17 @@ import sys
 from timeit import timeit
 from glob import glob
 
-REPEAT = 10**5
-CMD = '''LineItem('sesame seed', 250, 5.30)'''
-SETUP = '''from bulkfood import LineItem'''
+from imp import reload
 
-print('Criando %s instâncias em cada passo' % REPEAT)
+REPEAT = 10**6
+SETUP = '''from bulkfood import LineItem'''
+CMD = '''LineItem('sesame seed', 250, 5.30).subtotal()'''
+
+print('Creating %s instances each phase' % REPEAT)
 print()
-print('-----  -----  ------------')
-print('passo  tempo  inst/segundo')
-print('-----  -----  ------------')
+print('-----  -----  -----------')
+print('phase  time   inst/second')
+print('-----  -----  -----------')
 for i, dir_name in enumerate(glob('?')):
     sys.path.append(dir_name)
     if i == 0:
