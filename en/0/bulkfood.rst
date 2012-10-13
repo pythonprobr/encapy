@@ -1,6 +1,6 @@
-==============
-LineItem tests
-==============
+======
+Step 0
+======
 
 A line item for a bulk food order has description, weight and price fields::
 
@@ -10,6 +10,17 @@ A line item for a bulk food order has description, weight and price fields::
 	('Golden raisins', 5, 2.48)
 	>>> raisins.subtotal()
 	12.4
+
+
+Current implementation
+======================
+
+.. literalinclude:: bulkfood.py
+   :linenos:
+
+
+Next challenge
+==============
 
 The ``LineItem`` attributes are not validated, leading to trouble::
 
