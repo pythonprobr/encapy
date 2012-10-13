@@ -5,6 +5,9 @@ class LineItem(object):
         self.weight = weight
         self.price = price
 
+    def subtotal(self):
+        return self.weight * self.price
+
     @property
     def weight(self):
         return self.__weight
@@ -15,3 +18,4 @@ class LineItem(object):
             self.__weight = value
         else:
             raise ValueError('value must be > 0')
+

@@ -10,3 +10,11 @@ A line item for a bulk food order has description, weight and price fields::
 	('Golden raisins', 5, 2.48)
 	>>> raisins.subtotal()
 	12.4
+
+The ``LineItem`` attributes are not validated, leading to trouble::
+
+	>>> raisins.weight = -10
+	>>> raisins.subtotal()
+	-24.8
+
+Now the customer will be credited with that amount...

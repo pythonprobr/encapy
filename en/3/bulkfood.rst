@@ -5,30 +5,35 @@ LineItem tests
 A line item for a bulk food order has description, weight and price fields::
 
 	>>> from bulkfood import LineItem
-	>>> raisins = LineItem('Golden raisins', 10, 36.95)
-	>>> raisins.weight, raisins.description, raisins.price
-	(10, 'Golden raisins', 36.95)
+	>>> raisins = LineItem('Golden raisins', 5, 2.48)
+	>>> raisins.description, raisins.weight, raisins.price
+	('Golden raisins', 5, 2.48)
+	>>> raisins.subtotal()
+	12.4
 
-The ``weight`` of a ``LineItem`` must be > 0::
+Now ``weight`` and ``price`` are managed by instances of the ``Quantity``
+descriptor, which does not accept negative values::
 
 	>>> raisins.weight = 0
 	Traceback (most recent call last):
 		...
 	ValueError: value must be > 0
-
-The same rule applies to ``price``::
-
 	>>> raisins.price = 0
 	Traceback (most recent call last):
 		...
 	ValueError: value must be > 0
 
-The values of ``price`` and ``weight`` are stored in ``LineItem`` instance
-attributes with names synthesized by the descriptor class. These attributes
-look like ``Quantity_10b7c72a0``. They are unique but not user friendly::
+The values of ``price`` and ``weight`` are stored in each ``LineItem``
+instance in attributes named by the descriptor class. These attributes
+look like ``_quantity_«N»``::
 
-	>>> [name for name in dir(raisins) if name[-1] != '_'] #doctest: +ELLIPSIS
-	['Quantity_...', 'Quantity_...', 'description', 'price', 'weight']
+	>>> dir(raisins) #doctest: +ELLIPSIS
+	[..., '_quantity_0', '_quantity_1', ..., 'price', ..., 'weight']
 
+In the ``LineItem`` class, the ``weight`` descriptor is declared first,
+so we know its value is stored in the ``_quantity_0`` attribute::
 
-
+	>>> raisins.weight
+	5
+	>>> raisins._quantity_0
+	5

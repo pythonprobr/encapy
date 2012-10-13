@@ -11,7 +11,8 @@ A line item for a bulk food order has description, weight and price fields::
 	>>> raisins.subtotal()
 	12.4
 
-The weight of a ``LineItem`` must be > 0::
+Now the weight is a protected attribute, and its setter method verifies that
+the value is greater than 0::
 
 	>>> raisins.set_weight(-10)
 	Traceback (most recent call last):
