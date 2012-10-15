@@ -6,15 +6,15 @@ A line item for a bulk food order has description, weight and price fields::
 
 	>>> from bulkfood import LineItem
 	>>> raisins = LineItem('Golden raisins', 5, 2.48)
-	>>> raisins.description, raisins.weight, raisins.price
+	>>> raisins.description, raisins.get_weight(), raisins.price
 	('Golden raisins', 5, 2.48)
 	>>> raisins.subtotal()
 	12.4
 
-Now weight is a property, so we can refer to it simply as ``raisins.weight``,
-but assignment is managed by a setter method::
+Now the weight is a protected attribute, and its setter method verifies that
+the value is greater than 0::
 
-	>>> raisins.weight = -10
+	>>> raisins.set_weight(-10)
 	Traceback (most recent call last):
 		...
 	ValueError: value must be > 0
