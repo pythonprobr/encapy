@@ -10,11 +10,12 @@ REPEAT = 10**5
 SETUP = '''from bulkfood import LineItem'''
 CMD = '''
 seed = LineItem('sesame seed', 250, 5.30)
-seed.subtotal()
-for i in xrange(1, 100):
-    seed.price
-    if not i % 10:
-        seed.price = i
+t = seed.subtotal()
+for i in range(20):
+    p = seed.price
+    if i % 10 == 0:
+        seed.price = p * 1.1
+        t = seed.subtotal()
 '''
 
 print('Creating %s instances in each step' % REPEAT)
