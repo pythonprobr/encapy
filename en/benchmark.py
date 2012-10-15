@@ -6,9 +6,16 @@ from glob import glob
 
 from imp import reload
 
-REPEAT = 10**6
+REPEAT = 10**5
 SETUP = '''from bulkfood import LineItem'''
-CMD = '''LineItem('sesame seed', 250, 5.30).subtotal()'''
+CMD = '''
+seed = LineItem('sesame seed', 250, 5.30)
+seed.subtotal()
+for i in xrange(1, 100):
+    seed.price
+    if not i % 10:
+        seed.price = i
+'''
 
 print('Creating %s instances in each step' % REPEAT)
 print()
@@ -22,6 +29,6 @@ for i, dir_name in enumerate(glob('?')):
     else:
         reload(bulkfood)
     t = timeit(CMD, SETUP, number=REPEAT)
-    print('%3d    %.3f %11d' % (i, t, REPEAT/t))
+    print('  %s    %.3f %11d' % (dir_name, t, REPEAT/t))
     sys.path.pop()
 print('-----  -----  ------------')
