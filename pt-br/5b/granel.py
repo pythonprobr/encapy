@@ -15,7 +15,7 @@ class Quantidade(object):
         else:
             raise ValueError('valor deve ser > 0')
 
-def modelo(cls):
+def entidade(cls):
     nome = cls.__name__
     for chave, atr in cls.__dict__.items():
         if hasattr(atr, 'set_nome'):
@@ -23,7 +23,7 @@ def modelo(cls):
     return cls
 
 
-@modelo
+@entidade
 class ItemPedido(object):
 
     peso = Quantidade()
