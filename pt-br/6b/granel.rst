@@ -1,5 +1,5 @@
 ========
-Passo 5b
+Passo 6b
 ========
 
 Um pedido de alimentos a granel é uma coleção de ``ItenPedido``.
@@ -35,6 +35,10 @@ descritivo durante a construção das instâncias de ``ItemPedido``::
 
 Implementação
 =============
+
+.. literalinclude:: modelo.py
+   :linenos:
+
 
 .. literalinclude:: granel.py
    :linenos:
