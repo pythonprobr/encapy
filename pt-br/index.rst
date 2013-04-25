@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   README.rst
    passo1/granel.rst
    passo2/granel.rst
    passo3/granel.rst
