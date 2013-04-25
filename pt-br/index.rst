@@ -11,11 +11,13 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   1/granel.rst
-   2/granel.rst
-   3/granel.rst
-   4/granel.rst
-   5/granel.rst
-   6/granel.rst
+   passo1/granel.rst
+   passo2/granel.rst
+   passo3/granel.rst
+   passo4/granel.rst
+   passo5/granel.rst
+   passo5d/granel.rst
+   passo6/granel.rst
+   passo6d/granel.rst
 
 * :ref:`search`
