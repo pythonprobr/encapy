@@ -1,4 +1,4 @@
-from modelo import entidade, Quantidade
+from modelo import Quantidade, entidade
 
 class Quantidade(object):
 
