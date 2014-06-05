@@ -31,7 +31,7 @@ Para gerar formulários, é útil poder listar os campos com descritores
 na ordem em que foram declarados na classe.
 
 	>>> ItemPedido.listar_campos()
-	['peso', 'preco']
+	['peso', 'preco', 'volumes']
 
 
 

@@ -1,7 +1,14 @@
+from operator import itemgetter
+
 class Quantidade(object):
 
+    _qt_instancias = 0
+
     def __init__(self):
-        self.set_nome(self.__class__.__name__, id(self))
+        cls = self.__class__
+        self.set_nome(cls.__name__, id(self))
+        self.ordem = cls._qt_instancias
+        cls._qt_instancias += 1
 
     def set_nome(self, prefix, key):
         self.nome_alvo = '%s_%s' % (prefix, key)
@@ -26,5 +33,8 @@ class Modelo(object):
 
     @classmethod
     def listar_campos(cls):
-        return [nome for nome, atr in cls.__dict__.items()
+        campos = [(nome, atr.ordem) for nome, atr in cls.__dict__.items()
                 if hasattr(atr, 'set_nome')]
+        campos.sort(key=itemgetter(1))
+        return [nome for nome, ordem in campos]
+
