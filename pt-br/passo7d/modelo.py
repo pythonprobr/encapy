@@ -29,12 +29,12 @@ def entidade(cls):
             atr.set_nome('__' + nome, chave)
     return cls
 
+
 class Modelo(object):
 
     @classmethod
     def listar_campos(cls):
         campos = [(nome, atr.ordem) for nome, atr in cls.__dict__.items()
-                if hasattr(atr, 'set_nome')]
+                if hasattr(atr, 'ordem')]
         campos.sort(key=itemgetter(1))
         return [nome for nome, ordem in campos]
-
