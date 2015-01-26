@@ -11,9 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   0/bulkfood.rst
    1/bulkfood.rst
    2/bulkfood.rst
    3/bulkfood.rst
+   4/bulkfood.rst
+   5/bulkfood.rst
 
 * :ref:`search`
